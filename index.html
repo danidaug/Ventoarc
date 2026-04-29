@@ -5,186 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ventoarc | Arquitectura Digital</title>
     
-    <!-- Fuentes y Librería de Animaciones -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg: #050505;
-            --accent: #00f2ff;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
-            --transition-smooth: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: white;
-            overflow-x: hidden;
-            /* Fondo de cuadrícula tipo blueprint */
-            background-image: 
-                linear-gradient(var(--border) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        /* Navbar */
-        nav {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 25px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(15px);
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo { 
-            font-weight: 700; 
-            letter-spacing: 2px; 
-            color: var(--accent); 
-            text-decoration: none;
-        }
-
-        /* Hero Section */
-        section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 100px 10%;
-        }
-
-        .hero { text-align: center; }
-
-        h1 {
-            font-size: clamp(3rem, 10vw, 6rem);
-            line-height: 0.9;
-            margin-bottom: 25px;
-            background: linear-gradient(180deg, #fff 0%, #777 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #aaa;
-            max-width: 600px;
-            margin-bottom: 45px;
-        }
-
-        /* Botón con Transición de Neón Suave */
-        .btn {
-            padding: 18px 40px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            background: transparent;
-            display: inline-block;
-            transition: var(--transition-smooth);
-            position: relative;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: var(--accent);
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4), 0 0 40px rgba(0, 242, 255, 0.2);
-            transform: translateY(-3px);
-        }
-
-        /* Tarjetas con Transición de Neón Suave */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            width: 100%;
-            margin-top: 50px;
-        }
-
-        .card {
-            background: var(--glass);
-            padding: 50px;
-            border-radius: 28px;
-            border: 1px solid var(--border);
-            backdrop-filter: blur(5px);
-            transition: var(--transition-smooth);
-        }
-
-        .card:hover {
-            transform: translateY(-12px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 40px rgba(0, 242, 255, 0.1);
-        }
-
-        .card h3 { 
-            margin-bottom: 15px; 
-            font-size: 1.8rem; 
-            transition: color 0.5s ease;
-        }
-
-        .card:hover h3 {
-            color: var(--accent);
-        }
-
-        .card p { 
-            color: #888; 
-            line-height: 1.7;
-        }
-
-        /* Sección de Contacto (Caja Flotante) */
-        .contact-box {
-            background: #ffffff;
-            color: #000;
-            padding: 70px 10%;
-            border-radius: 40px;
-            width: 100%;
-            max-width: 900px;
-            text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-        }
-
-        .contact-box h2 { font-size: 2.5rem; margin-bottom: 10px; }
-
-        input, textarea {
-            width: 100%;
-            padding: 18px;
-            margin: 12px 0;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            font-family: inherit;
-            background: #f9f9f9;
-        }
-
-        /* Footer */
-        footer {
-            padding: 60px;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: #555;
-            font-size: 0.9rem;
-        }
-
-        span.accent-text { color: var(--accent); }
-
-    </style>
-</head>
-<body><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ventoarc | Arquitectura Digital</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -398,7 +218,7 @@
 
     <nav>
         <a href="#" class="logo">VENTOARC</a>
-        <div style="font-size: 0.7rem; opacity: 0.6; letter-spacing: 1px; font-weight: 700;">NO TE QUEDES ATRÁS/div>
+        <div style="font-size: 0.7rem; opacity: 0.6; letter-spacing: 1px; font-weight: 700;">2026 / AGENCIA</div>
     </nav>
 
     <!-- HERO -->
@@ -473,7 +293,7 @@
 
             <div class="step" id="stepFinal">
                 <div style="text-align: center; padding: 20px;">
-                    <p class="question-title" style="color: var(--accent);">¡Recibido!</p>
+                    <p class="question-title" style="color: var(--accent);">¡Recibido! 🚀</p>
                     <p style="color: #aaa; line-height: 1.6;">Estamos procesando tu información. Un arquitecto de sistemas de <strong>Ventoarc</strong> te contactará en breve.</p>
                 </div>
             </div>
@@ -511,74 +331,6 @@
                 alert("Por favor, completa los campos.");
             }
         }
-    </script>
-</body>
-</html>
-
-    <nav>
-        <a href="#" class="logo">VENTOARC</a>
-        <div style="font-size: 0.8rem; letter-spacing: 1px; opacity: 0.7;">NO TE QUEDES ATRÁS</div>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero">
-        <h1 data-aos="fade-up" data-aos-duration="1200">Arquitectura <br>que <span class="accent-text">fluye</span>.</h1>
-        <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">Construimos la infraestructura digital que tu empresa necesita para escalar sin fricción.</p>
-        <div data-aos="zoom-in" data-aos-delay="400">
-            <a href="#contacto" class="btn">Solicitar Auditoría</a>
-        </div>
-    </section>
-
-    <!-- SERVICIOS -->
-    <section>
-        <div style="width: 100%;" data-aos="fade-right">
-            <h2 style="font-size: 0.9rem; letter-spacing: 3px; color: var(--accent); margin-bottom: 10px;">SERVICIOS</h2>
-            <h3 style="font-size: 2.5rem; margin-bottom: 50px;">Estructuras de alto rendimiento</h3>
-        </div>
-        
-        <div class="grid">
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <h3>01. IA Core</h3>
-                <p>Implementación de agentes autónomos y flujos de IA que procesan información y toman decisiones en tiempo real.</p>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <h3>02. Web Arc</h3>
-                <p>Desarrollo de interfaces de nueva generación, optimizadas para la conversión y la velocidad extrema.</p>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>03. Data Flow</h3>
-                <p>Arquitectura de conexiones (APIs y No-Code) que eliminan el trabajo manual en toda tu cadena operativa.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto">
-        <div class="contact-box" data-aos="zoom-out-up" data-aos-duration="1000">
-            <h2>Hablemos de tu proyecto</h2>
-            <p style="color: #666; margin-bottom: 30px;">Analizaremos tus procesos actuales y propondremos una arquitectura de mejora.</p>
-            <form>
-                <input type="text" placeholder="Tu Nombre o Empresa" required>
-                <input type="email" placeholder="Email corporativo" required>
-                <textarea rows="4" placeholder="¿Qué proceso te gustaría automatizar?"></textarea>
-                <button type="submit" class="btn" style="background: #000; color: #fff; width: 100%; border: none; margin-top: 20px; font-size: 1rem;">Enviar Propuesta</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        VENTOARC &copy; 2026 — Transformación Digital & Automatización Avanzada.
-    </footer>
-
-    <!-- Scripts de Animación -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: false,
-            mirror: true,
-            anchorPlacement: 'top-bottom',
-        });
     </script>
 </body>
 </html>
