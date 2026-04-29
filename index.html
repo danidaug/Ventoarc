@@ -320,13 +320,41 @@
             document.getElementById('progress').style.width = progress + '%';
         }
 
-        function finishForm() {
+        async function finishForm() {
             const name = document.getElementById('userName').value;
             const email = document.getElementById('userEmail').value;
+
             if(name && email) {
-                document.getElementById('step3').classList.remove('active');
-                document.getElementById('stepFinal').classList.add('active');
-                document.getElementById('progress').style.width = '100%';
+                // Combinamos los datos del formulario con las respuestas guardadas en formData
+                const payload = {
+                    ...formData,
+                    nombre: name,
+                    email: email,
+                    fecha: new Date().toISOString(),
+                    origen: "Web Ventoarc"
+                };
+
+                // URL del Webhook de Make.com (Sustituye esto por la tuya cuando la tengas)
+                const webhookURL = "https://hook.eu1.make.com/t3p4me3txprvto4k0kudtq3b1s19wzqb";
+
+                try {
+                    // Enviamos los datos de forma asíncrona
+                    fetch(webhookURL, {
+                        method: 'POST',
+                        mode: 'no-cors', // Útil para evitar problemas de CORS en pruebas rápidas
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    // Mostramos el paso final al usuario inmediatamente para que la web fluya
+                    document.getElementById('step3').classList.remove('active');
+                    document.getElementById('stepFinal').classList.add('active');
+                    document.getElementById('progress').style.width = '100%';
+
+                } catch (error) {
+                    console.error("Error enviando los datos:", error);
+                    alert("Hubo un error al enviar el diagnóstico. Por favor, inténtalo de nuevo.");
+                }
             } else {
                 alert("Por favor, completa los campos.");
             }
