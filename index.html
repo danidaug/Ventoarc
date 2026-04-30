@@ -212,19 +212,60 @@
             h1 { font-size: 3rem; }
             .interactive-form { padding: 40px 20px; min-height: 520px; }
         }
+
+        .breath {
+            display: inline-block;
+          font-weight: bold;
+          color: #00ffff; /* El cian de Ventoarc */
+          
+          /* Aplicamos la animación: 4 segundos, infinita y suave */
+          animation: fluir 4s ease-in-out infinite;
+          padding-bottom: 0.2em; /* Espacio extra para el trazo descendente */
+          line-height: 1.2;      /* Ajusta la altura de línea para que no se pegue */
+          vertical-align: middle; /* Alinea con el resto del texto */
+          /* Extra: degradado que se mueve si quieres algo más pro */
+          background: linear-gradient(90deg, #00ffff, #0088ff, #00ffff);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: fluir 4s ease-in-out infinite, brillo-deslizante 3s linear infinite;
+        }
+        @keyframes fluir {
+          0% {
+            transform: translateY(0) translateX(0);
+            filter: hue-rotate(0deg);
+          }
+          33% {
+            transform: translateY(-5px) translateX(2px);
+            text-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+          }
+          66% {
+            transform: translateY(2px) translateX(-2px);
+            filter: hue-rotate(15deg); /* Cambia suavemente el tono cian */
+          }
+          100% {
+            transform: translateY(0) translateX(0);
+            filter: hue-rotate(0deg);
+          }
+        }
+        @keyframes brillo-deslizante {
+          to {
+            background-position: 200% center;
+          }
+        }
     </style>
 </head>
 <body>
 
     <nav>
         <a href="#" class="logo">VENTOARC</a>
-        <div style="font-size: 0.7rem; opacity: 0.6; letter-spacing: 1px; font-weight: 700;">2026 / AGENCIA</div>
+        <div style="font-size: 0.7rem; opacity: 0.6; letter-spacing: 1px; font-weight: 700;">NO TE QUEDES ÁTRAS</div>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <h1 data-aos="fade-up">Arquitectura <br>que <span class="accent-text">fluye</span>.</h1>
+            <h1 data-aos="fade-up">Arquitectura <br>que <span class="accent-text breath">fluye</span>.</h1>
             <p data-aos="fade-up" data-aos-delay="200">Convertimos la complejidad operativa en sistemas automatizados de alto rendimiento.</p>
             <div data-aos="zoom-in" data-aos-delay="400">
                 <a href="#contacto" class="btn">Empezar diagnóstico</a>
@@ -285,6 +326,8 @@
                 <option value="Arquitectura">Estudio de Arquitectura</option>
                 <option value="Constructora">Constructora / Promotora</option>
                 <option value="Ingenieria">Ingeniería</option>
+                <option value="Clínica">Clínica</option>
+                <option value="Inmobiliaria">Inmobiliaria</option>
                 <option value="Otro">Otro sector</option>
             </select>
             <button class="option-btn" style="margin-top: 20px;" onclick="nextStep(2, 'Empresa validada')">Continuar</button>
@@ -312,7 +355,7 @@
         <!-- PASO FINAL -->
         <div class="step" id="stepFinal">
             <div style="text-align: center; padding: 20px;">
-                <p class="question-title" style="color: var(--accent);">¡Recibido! 🚀</p>
+                <p class="question-title" style="color: var(--accent);">¡Recibido!</p>
                 <p style="color: #aaa; line-height: 1.6;">Estamos procesando tu información. Un arquitecto de sistemas de <strong>Ventoarc</strong> te contactará en breve.</p>
             </div>
         </div>
