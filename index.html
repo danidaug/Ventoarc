@@ -255,108 +255,141 @@
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto">
-        <div style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
-            <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem);">¿Escalamos tu negocio?</h2>
-            <p style="color: #666; margin-top: 10px;">Diagnóstico inicial sin compromiso.</p>
+   <section id="contacto">
+    <div style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
+        <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem);">¿Escalamos tu negocio?</h2>
+        <p style="color: #666; margin-top: 10px;">Diagnóstico inicial sin compromiso.</p>
+    </div>
+
+    <div class="interactive-form" data-aos="zoom-in">
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+        
+        <!-- PASO 1: RETO -->
+        <div class="step active" id="step1">
+            <p class="question-title">¿Cuál es tu mayor reto operativo?</p>
+            <div class="options-grid">
+                <button class="option-btn" onclick="nextStep(1, 'Procesos manuales')">Procesos manuales lentos</button>
+                <button class="option-btn" onclick="nextStep(1, 'Fuga de clientes')">Fuga de clientes / Leads</button>
+                <button class="option-btn" onclick="nextStep(1, 'Desorden de datos')">Desorden en datos/CRM</button>
+            </div>
         </div>
 
-        <div class="interactive-form" data-aos="zoom-in">
-            <div class="progress-container">
-                <div class="progress-bar" id="progress"></div>
-            </div>
-            
-            <div class="step active" id="step1">
-                <p class="question-title">¿Cuál es tu mayor reto operativo?</p>
-                <div class="options-grid">
-                    <button class="option-btn" onclick="nextStep(1, 'Procesos manuales')">Procesos manuales lentos</button>
-                    <button class="option-btn" onclick="nextStep(1, 'Fuga de clientes')">Fuga de clientes / Leads</button>
-                    <button class="option-btn" onclick="nextStep(1, 'Desorden de datos')">Desorden en datos/CRM</button>
-                </div>
-            </div>
+        <!-- NUEVO PASO 2: SECTOR Y EMPRESA -->
+        <div class="step" id="step2">
+            <p class="question-title">Cuéntanos sobre tu empresa</p>
+            <input type="text" id="companyName" class="input-field" placeholder="Nombre de la empresa">
+            <select id="companySector" class="input-field" style="background: #1a1a1a; color: white;">
+                <option value="" disabled selected>Sector de tu empresa</option>
+                <option value="Arquitectura">Estudio de Arquitectura</option>
+                <option value="Constructora">Constructora / Promotora</option>
+                <option value="Ingenieria">Ingeniería</option>
+                <option value="Otro">Otro sector</option>
+            </select>
+            <button class="option-btn" style="margin-top: 20px;" onclick="nextStep(2, 'Empresa validada')">Continuar</button>
+        </div>
 
-            <div class="step" id="step2">
-                <p class="question-title">¿Qué volumen de empleados sois?</p>
-                <div class="options-grid">
-                    <button class="option-btn" onclick="nextStep(2, '1-10')">1 - 10 personas</button>
-                    <button class="option-btn" onclick="nextStep(2, '11-50')">11 - 50 personas</button>
-                    <button class="option-btn" onclick="nextStep(2, '+50')">Más de 50 personas</button>
-                </div>
-            </div>
-
-            <div class="step" id="step3">
-                <p class="question-title">Datos de contacto</p>
-                <input type="text" id="userName" class="input-field" placeholder="Tu Nombre">
-                <input type="email" id="userEmail" class="input-field" placeholder="Email corporativo">
-                <button class="submit-btn" onclick="finishForm()">Enviar Diagnóstico</button>
-            </div>
-
-            <div class="step" id="stepFinal">
-                <div style="text-align: center; padding: 20px;">
-                    <p class="question-title" style="color: var(--accent);">¡Recibido! 🚀</p>
-                    <p style="color: #aaa; line-height: 1.6;">Estamos procesando tu información. Un arquitecto de sistemas de <strong>Ventoarc</strong> te contactará en breve.</p>
-                </div>
+        <!-- PASO 3: TAMAÑO (Antes paso 2) -->
+        <div class="step" id="step3">
+            <p class="question-title">¿Qué volumen de empleados sois?</p>
+            <div class="options-grid">
+                <button class="option-btn" onclick="nextStep(3, '1-10')">1 - 10 personas</button>
+                <button class="option-btn" onclick="nextStep(3, '11-50')">11 - 50 personas</button>
+                <button class="option-btn" onclick="nextStep(3, '+50')">Más de 50 personas</button>
             </div>
         </div>
-    </section>
+
+        <!-- PASO 4: CONTACTO Y NOTAS (Antes paso 3) -->
+        <div class="step" id="step4">
+            <p class="question-title">Datos de contacto</p>
+            <input type="text" id="userName" class="input-field" placeholder="Tu Nombre">
+            <input type="email" id="userEmail" class="input-field" placeholder="Email corporativo">
+            <textarea id="userNotes" class="input-field" placeholder="Nota adicional o mensaje..." style="height: 100px; resize: none;"></textarea>
+            <button class="submit-btn" onclick="finishForm()">Enviar Diagnóstico</button>
+        </div>
+
+        <!-- PASO FINAL -->
+        <div class="step" id="stepFinal">
+            <div style="text-align: center; padding: 20px;">
+                <p class="question-title" style="color: var(--accent);">¡Recibido! 🚀</p>
+                <p style="color: #aaa; line-height: 1.6;">Estamos procesando tu información. Un arquitecto de sistemas de <strong>Ventoarc</strong> te contactará en breve.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <footer>
         VENTOARC &copy; 2026 — ARQUITECTURA DIGITAL & SISTEMAS IA
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
+   <script>
         // Inicializar animaciones
         AOS.init({ duration: 1000, once: false, mirror: true });
-
+    
         // Lógica del Formulario
         let formData = {};
-
+        const totalSteps = 4; // Actualizado a 4 pasos antes del final
+    
         function nextStep(currentStep, value) {
-            formData['pregunta_' + currentStep] = value;
+            // Guardamos el valor si existe (para los botones de selección)
+            if (value) {
+                formData['pregunta_' + currentStep] = value;
+            }
+            
+            // Cambio visual de pasos
             document.getElementById('step' + currentStep).classList.remove('active');
             document.getElementById('step' + (currentStep + 1)).classList.add('active');
-            const progress = (currentStep + 1) * 33.33;
+            
+            // Actualización de la barra de progreso (dividida entre el número total de pasos)
+            const progress = (currentStep + 1) * (100 / totalSteps);
             document.getElementById('progress').style.width = progress + '%';
         }
-
+    
         async function finishForm() {
             const name = document.getElementById('userName').value;
             const email = document.getElementById('userEmail').value;
-
-            if(name && email) {
-                // Combinamos los datos del formulario con las respuestas guardadas en formData
+            const company = document.getElementById('companyName').value;
+            const sector = document.getElementById('companySector').value;
+            const notes = document.getElementById('userNotes').value;
+    
+            if(name && email && company && sector) {
+                // Combinamos los datos recopilados
                 const payload = {
                     ...formData,
                     nombre: name,
                     email: email,
+                    empresa: company,
+                    sector: sector,
+                    notas: notes,
                     fecha: new Date().toISOString(),
                     origen: "Web Ventoarc"
                 };
-
-                // URL del Webhook de Make.com (Sustituye esto por la tuya cuando la tengas)
+    
+                // URL de tu Webhook de Make.com
                 const webhookURL = "https://hook.eu1.make.com/t3p4me3txprvto4k0kudtq3b1s19wzqb";
-
+    
                 try {
-                    // Enviamos los datos de forma asíncrona
+                    // Enviamos los datos
                     fetch(webhookURL, {
                         method: 'POST',
-                        mode: 'no-cors', // Útil para evitar problemas de CORS en pruebas rápidas
+                        mode: 'no-cors', 
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
-
-                    // Mostramos el paso final al usuario inmediatamente para que la web fluya
-                    document.getElementById('step3').classList.remove('active');
+    
+                    // Transición al estado final
+                    document.getElementById('step4').classList.remove('active');
                     document.getElementById('stepFinal').classList.add('active');
                     document.getElementById('progress').style.width = '100%';
-
+    
                 } catch (error) {
                     console.error("Error enviando los datos:", error);
                     alert("Hubo un error al enviar el diagnóstico. Por favor, inténtalo de nuevo.");
                 }
             } else {
-                alert("Por favor, completa los campos.");
+                alert("Por favor, completa los campos obligatorios (Nombre, Email, Empresa y Sector).");
             }
         }
     </script>
